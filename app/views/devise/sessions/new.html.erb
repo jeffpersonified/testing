@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="four columns centered user">
+
+    <h2>Sign in</h2>
+      <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+        <div>
+          <%= f.label :email, :class => "forms" %>
+          <%= f.email_field :email %>
+        </div>
+        <br />
+        <div>
+          <%= f.label :password, :class => "forms" %>
+          <%= f.password_field :password %>
+        </div>
+        <br />
+          <% if devise_mapping.rememberable? -%>
+            <div>
+              <%= f.label :remember_me, :class => "checkbox" %>
+              <%= f.check_box :remember_me %>
+            <div>
+          <% end -%>
+          <br>
+          <br/>
+          <%= f.submit "Sign in", :class => "radius button"  %>
+        </div>
+      <% end %>
+    </div>
+    
+    <%= render "devise/shared/links" %>
+  </div>
+</div>
+
